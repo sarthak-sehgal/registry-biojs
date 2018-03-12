@@ -4,6 +4,7 @@ var most_dl_name = document.getElementsByClassName("most_dl_name");
 var most_dl_no = document.getElementsByClassName("most_dl_no");
 var top_star_name = document.getElementsByClassName("top_star_name");
 var top_star_no = document.getElementsByClassName("top_star_no");
+var top_ten = document.getElementById("popular-components");
 
 $.getJSON( "http://139.59.93.32/api/datatest/index/", function( data ) {
   var recent = data.most_recent_components;
@@ -23,5 +24,13 @@ $.getJSON( "http://139.59.93.32/api/datatest/index/", function( data ) {
   $.each(recent, function(k, v) {
     most_recent_name[k].innerHTML = (recent[k].name);
     most_recent_time[k].innerHTML = (recent[k].modified_time.substring(0, 10));
+  });
+});
+
+$.getJSON( "http://139.59.93.32/api/datatest/top/", function( data ) {
+  var components = data.top_components;
+
+  $.each(components, function(k, v) {
+    top_ten.innerHTML += '<div class="component"><div class="component-img"><img src="'+components[k].icon_url+'"></div><div class="component-main-misc"><div class="component-info-main"><div class="component-name">'+components[k].name+'</div><div class="component-author">Max Franz</div><div class="component-info">'+components[k].short_description+'</div><div class="component-tags"><label>Tags:</label>'+components[k].tags+'</div></div><div class="component-misc"><div class="component-downloads"><span>'+components[k].downloads+'</span><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></div><div class="component-stars"><span>'+components[k].stars+'</span><span class="glyphicon glyphicon-star" aria-hidden="true"></span></div><div class="component-modified"><span>'+components[k].modified_time.substring(0, 10)+'</span><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span></div></div></div></div>';
   });
 });
