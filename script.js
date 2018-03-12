@@ -12,7 +12,7 @@ $.getJSON( "http://139.59.93.32/api/datatest/index/", function( data ) {
 
   $.each(dl, function(k, v) {
     most_dl_name[k].innerHTML = (dl[k].name);
-    most_dl_no[k].innerHTML = (dl[k].donwloads);
+    most_dl_no[k].innerHTML = (dl[k].downloads);
   });
 
   $.each(star, function(k, v) {
@@ -22,6 +22,6 @@ $.getJSON( "http://139.59.93.32/api/datatest/index/", function( data ) {
 
   $.each(recent, function(k, v) {
     most_recent_name[k].innerHTML = (recent[k].name);
-    most_recent_time[k].innerHTML = (recent[k].modified_time);
+    most_recent_time[k].innerHTML = (recent[k].modified_time.substring(0, 10));
   });
 });
