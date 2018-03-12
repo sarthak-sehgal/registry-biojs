@@ -11,13 +11,13 @@ $.getJSON( "http://139.59.93.32/api/datatest/index/", function( data ) {
   var dl = data.top_dl_components;
 
   $.each(dl, function(k, v) {
-    most_dl_name[k].innerHTML = (recent[k].name);
-    most_dl_no[k].innerHTML = (recent[k].donwloads);
+    most_dl_name[k].innerHTML = (dl[k].name);
+    most_dl_no[k].innerHTML = (dl[k].donwloads);
   });
 
   $.each(star, function(k, v) {
-    top_star_name[k].innerHTML = (recent[k].name);
-    top_star_no[k].innerHTML = (recent[k].stars);
+    top_star_name[k].innerHTML = (star[k].name);
+    top_star_no[k].innerHTML = (star[k].stars);
   });
 
   $.each(recent, function(k, v) {
