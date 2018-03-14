@@ -304,3 +304,21 @@ h1, h2, h3, h4, h5 {
 #nav a:hover {
 	text-decoration: none;
 }
+.component-container {
+	min-height: 100vh;
+	background: #F3F3F3;
+}
+#component-container {
+	width: 80%;
+}
+.componentInfo {
+	text-align: center;
+	margin-bottom: 10vh;
+}
+.componentElement {
+	background: #fff;
+	padding: 10px;
+	border-radius: 3px;
+	margin-bottom: 3vh;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
