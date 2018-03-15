@@ -36,5 +36,8 @@ function init()
 	    // var component = document.getElementsByClassName('component')[k];
 	  });
 	});
+	$.getJSON( "https://api.github.com/repos/cytoscape/cytoscape.js", function(data) { 
+		// dummy call
+	});
 }
 init();
