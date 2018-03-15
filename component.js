@@ -18,15 +18,15 @@ function init()
 		}
 
 		$.getJSON(details.github_url, function(github_data) {
-			var stars = '<li>Stars: '+github_data.stargazers_count+'</li>';
-			var watchers = '<li>Watchers: '+github_data.subscribers_count+'</li>';
-			var forks = '<li>Forks: '+github_data.forks_count+'</li>';
-			var modified = '<li>Modified at: '+github_data.updated_at.substring(0,10);
-			var legal = github_data.license;
-			var legal_name = legal.name;
-			var legal_url = '<a href="'+license.url+'">'+legal_name+'</a>';
-			var created_at = '<li>Created at: '+github_data.created_at.substring(0,10)+'</li>';
-			var issues = '<li>Open issues: '+github_data.open_issues_count+'</li>';
+			stars = '<li>Stars: '+github_data.stargazers_count+'</li>';
+			watchers = '<li>Watchers: '+github_data.subscribers_count+'</li>';
+			forks = '<li>Forks: '+github_data.forks_count+'</li>';
+			modified = '<li>Modified at: '+github_data.updated_at.substring(0,10);
+			legal = github_data.license;
+			legal_name = legal.name;
+			legal_url = '<a href="'+legal.url+'">'+legal_name+'</a>';
+			created_at = '<li>Created at: '+github_data.created_at.substring(0,10)+'</li>';
+			issues = '<li>Open issues: '+github_data.open_issues_count+'</li>';
 			$.getJSON(details.github_url+"/contributors", function(contributors) {
 				contributors_count = '<li>Contributors: '+contributors.length+'</li>';
 				commits = 0;
