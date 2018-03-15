@@ -11,15 +11,15 @@ function init()
 	  var dl = data.top_dl_components;
 
 	  $.each(dl, function(k, v) {
-	  	topDownloads.innerHTML += '<a class="top_component_link" style="text-decoration: none; color: #000;" href="component.html" onclick="setItem(this.id)" id="'+dl[k].url_name+'"><li class="list-group-item top_component_link"><div class="badge"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span><span class="most_dl_no">'+dl[k].downloads+'</span></div><span class="most_dl_name">'+dl[k].name+'</span></li></a>';
+	  	topDownloads.innerHTML += '<a class="top-component-link" style="text-decoration: none; color: #000;" href="component.html" onclick="setItem(this.id)" id="'+dl[k].url_name+'"><li class="list-group-item top_component_link" style="border-radius: 0"><div class="badge"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span><span class="most_dl_no">'+dl[k].downloads+'</span></div><span class="most_dl_name">'+dl[k].name+'</span></li></a>';
 	  });
 
 	  $.each(star, function(k, v) {
-	  	topStars.innerHTML += '<a class="top_component_link" style="text-decoration: none; color: #000;" href="component.html" onclick="setItem(this.id)" id="'+star[k].url_name+'"><li class="list-group-item top_component_link"><div class="badge"><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="top_star_no">'+star[k].stars+'</span></div><span class="top_star_name">'+star[k].name+'</span></li></a>';
+	  	topStars.innerHTML += '<a class="top-component-link" style="text-decoration: none; color: #000;" href="component.html" onclick="setItem(this.id)" id="'+star[k].url_name+'"><li class="list-group-item top_component_link" style="border-radius: 0"><div class="badge"><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="top_star_no">'+star[k].stars+'</span></div><span class="top_star_name">'+star[k].name+'</span></li></a>';
 	  });
 
 	  $.each(recent, function(k, v) {
-	  	mostRecent.innerHTML += '<a class="top_component_link" style="text-decoration: none; color: #000;" href="component.html" onclick="setItem(this.id)" id="'+recent[k].url_name+'"><li class="list-group-item top_component_link"><div class="badge"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span><span class="most_recent_time">'+recent[k].modified_time.substring(0, 10)+'</span></div><span class="most_recent_name">'+recent[k].name+'</span></li></a>';
+	  	mostRecent.innerHTML += '<a class="top-component-link" style="text-decoration: none; color: #000;" href="component.html" onclick="setItem(this.id)" id="'+recent[k].url_name+'"><li class="list-group-item top_component_link" style="border-radius: 0"><div class="badge"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span><span class="most_recent_time">'+recent[k].modified_time.substring(0, 10)+'</span></div><span class="most_recent_name">'+recent[k].name+'</span></li></a>';
 	  });
 	});
 	$.getJSON( "http://139.59.93.32/api/datatest/top/", function( data ) {
