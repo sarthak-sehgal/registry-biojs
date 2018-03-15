@@ -37,11 +37,11 @@ function init()
 			document.getElementsByClassName("legalUrl")[0].innerHTML += window.legal_url;
 		});
 		$.getJSON(details.github_url+"/contributors", function(contributors) {
-			contributors_count = '<a href="html_url" target="_blank"><li>Contributors: '+contributors.length+'</li></a>';
+			contributors_count = '<li>Contributors: '+contributors.length+'</li>';
 			for(i=0, commits=0, contributors_name = '<ul>'; i<contributors.length; i++)
 			{
 				commits+=contributors[i].contributions;
-				contributors_name += '<li>'+contributors[i].login + ' ('+contributors[i].contributions+')</li>';
+				contributors_name += '<a href="'+contributors[i].html_url+'" target="_blank"><li>'+contributors[i].login + ' ('+contributors[i].contributions+')</li></a>';
 			}
 			window.contributors_name += '</ul>';
 			var contributors_list = document.getElementsByClassName("contributors-list")[0];
