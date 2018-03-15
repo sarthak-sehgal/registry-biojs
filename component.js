@@ -1,1 +1,1 @@
-console.log(localStorage.getItem("component"));
+alert(window.localStorage.getItem("component"));
