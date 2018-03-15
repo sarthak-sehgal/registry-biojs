@@ -37,7 +37,7 @@ function init()
 			document.getElementsByClassName("legalUrl")[0].innerHTML += window.legal_url;
 		});
 		$.getJSON(details.github_url+"/contributors", function(contributors) {
-			contributors_count = '<li>Contributors: '+contributors.length+'</li>';
+			contributors_count = '<a href="html_url" target="_blank"><li>Contributors: '+contributors.length+'</li></a>';
 			for(i=0, commits=0, contributors_name = '<ul>'; i<contributors.length; i++)
 			{
 				commits+=contributors[i].contributions;
