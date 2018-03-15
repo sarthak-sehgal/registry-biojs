@@ -24,7 +24,7 @@ function init()
 			var modified = '<li>Modified at: '+github_data.updated_at.substring(0,10);
 			var legal = github_data.license;
 			var legal_name = legal.name;
-			var legal_url = '<a href="'+license.url+'">'legal_name'</a>';
+			var legal_url = '<a href="'+license.url+'">'+legal_name+'</a>';
 			var created_at = '<li>Created at: '+github_data.created_at.substring(0,10)+'</li>';
 			var issues = '<li>Open issues: '+github_data.open_issues_count+'</li>';
 			$.getJSON(details.github_url+"/contributors", function(contributors) {
