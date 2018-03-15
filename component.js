@@ -26,7 +26,7 @@ function init()
 			legal_url = '<a href="'+legal.url+'">'+legal_name+'</a>';
 			created_at = '<li>Created at: '+github_data.created_at.substring(0,10)+'</li>';
 			issues = '<li>Open issues: '+github_data.open_issues_count+'</li>';
-			componentContainer.innerHTML += '<div class="componentInfo">'+details.short_description+'</div><div class="componentNpm componentElement"><code>npm install '+url_name+'</code></div><div class="componentVisualize componentElement" style="padding: 0"><div class="component-heading">Visualization</div><div class="component-content"></div></div><div class="componentTags componentElement" style="padding: 0"><div class="component-heading">Tags</div><div class="component-content">'+getTags()+'</div></div><div class="componentSocial componentElement" style="padding: 0"><div class="component-heading">Social</div><div class="component-content"><ul class="componentSocial-list">'+window.stars+window.watchers+window.commits+window.forks+'<ul></div></div><div class="componentStats componentElement" style="padding: 0"><div class="component-heading">Stats</div><div class="component-content"><ul class="componentStats-list">'+window.modified+window.created_at+window.issues+'</ul></div></div><div class="componentContirbutors componentElement" style="padding: 0"><div class="component-heading">Contributors</div><div class="component-content contributors-list"></div></div><div class="componentLegal componentElement" style="padding: 0"><div class="component-heading">Legal</div><div class="component-content">'+window.legal_url+'</div></div>';
+			componentContainer.innerHTML += '<div class="componentInfo">'+details.short_description+'</div><div class="componentNpm componentElement"><code>npm install '+url_name+'</code></div><div class="componentVisualize componentElement" style="padding: 0"><div class="component-heading">Visualization</div><div class="component-content"></div></div><div class="componentTags componentElement" style="padding: 0"><div class="component-heading">Tags</div><div class="component-content">'+getTags()+'</div></div><div class="componentSocial componentElement" style="padding: 0"><div class="component-heading">Social</div><div class="component-content"><ul class="componentSocial-list">'+window.stars+window.watchers+window.forks+'<ul></div></div><div class="componentStats componentElement" style="padding: 0"><div class="component-heading">Stats</div><div class="component-content"><ul class="componentStats-list">'+window.modified+window.created_at+window.issues+'</ul></div></div><div class="componentContirbutors componentElement" style="padding: 0"><div class="component-heading">Contributors</div><div class="component-content contributors-list"></div></div><div class="componentLegal componentElement" style="padding: 0"><div class="component-heading">Legal</div><div class="component-content">'+window.legal_url+'</div></div>';
 		});
 		$.getJSON(details.github_url+"/contributors", function(contributors) {
 			contributors_count = '<li>Contributors: '+contributors.length+'</li>';
@@ -41,7 +41,7 @@ function init()
 			var contributors_list = document.getElementsByClassName("contributors-list")[0];
 			contributors_list.innerHTML += contributors_name;
 			var social_list = document.getElementsByClassName("componentSocial-list")[0];
-			social_list.innerHTML+=window.contributors_count;
+			social_list.innerHTML+=window.contributors_count + window.commits;
 		});
 		$.getJSON(details.github_url+"/releases", function(releases) {
 			latest_version = '<li>'+releases[0].tag_name+'</li>';
