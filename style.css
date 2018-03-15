@@ -247,6 +247,13 @@ h1, h2, h3, h4, h5 {
 	position: relative;
 	display: flex;
 	margin-bottom: 10px;
+	-webkit-transition: 0.2s all ease-in-out;
+	-moz-transition: 0.2s all ease-in-out;
+	-o-transition: 0.2s all ease-in-out;
+	transition: 0.2s all ease-in-out;
+}
+.component:hover {
+	background-color: #e2e2e2;
 }
 .component-img {
 	height: 180px;
@@ -340,4 +347,13 @@ h1, h2, h3, h4, h5 {
 	padding: 5px;
 	border-radius: 1px;
 	margin-right: 5px;
+}
+.list-group-item {
+	-webkit-transition: 0.2s all ease-in-out;
+	-moz-transition: 0.2s all ease-in-out;
+	-o-transition: 0.2s all ease-in-out;
+	transition: 0.2s all ease-in-out;
+}
+.list-group-item:hover {
+	background-color: #e2e2e2;
 }

@@ -1,12 +1,8 @@
 function init()
 {
-	var most_recent_time = document.getElementsByClassName("most_recent_time");
-	var most_recent_name = document.getElementsByClassName("most_recent_name");
-	var most_dl_name = document.getElementsByClassName("most_dl_name");
-	var most_dl_no = document.getElementsByClassName("most_dl_no");
-	var top_star_name = document.getElementsByClassName("top_star_name");
-	var top_star_no = document.getElementsByClassName("top_star_no");
-	var top_ten = document.getElementById("popular-components");
+	var topDownloads = document.getElementsByClassName("topDownloads")[0];
+	var topStars = document.getElementsByClassName("topStars")[0];
+	var mostRecent = document.getElementsByClassName("mostRecent")[0];
 
 	$.getJSON( "http://139.59.93.32/api/datatest/index/", function( data ) {
 	  var recent = data.most_recent_components;
@@ -14,18 +10,15 @@ function init()
 	  var dl = data.top_dl_components;
 
 	  $.each(dl, function(k, v) {
-	    most_dl_name[k].innerHTML = (dl[k].name);
-	    most_dl_no[k].innerHTML = (dl[k].downloads);
+	  	topDownloads.innerHTML += '<a style="text-decoration: none; color: #000;" href="component.html" onclick="setItem(this.id)" id="'+dl[k].url_name+'"><li class="list-group-item"><div class="badge"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span><span class="most_dl_no">'+dl[k].downloads+'</span></div><span class="most_dl_name">'+dl[k].name+'</span></li></a>';
 	  });
 
 	  $.each(star, function(k, v) {
-	    top_star_name[k].innerHTML = (star[k].name);
-	    top_star_no[k].innerHTML = (star[k].stars);
+	  	topStars.innerHTML += '<a style="text-decoration: none; color: #000;" href="component.html" onclick="setItem(this.id)" id="'+star[k].url_name+'"><li class="list-group-item"><div class="badge"><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="top_star_no">'+star[k].stars+'</span></div><span class="top_star_name">'+star[k].name+'</span></li></a>';
 	  });
 
 	  $.each(recent, function(k, v) {
-	    most_recent_name[k].innerHTML = (recent[k].name);
-	    most_recent_time[k].innerHTML = (recent[k].modified_time.substring(0, 10));
+	  	mostRecent.innerHTML += '<a style="text-decoration: none; color: #000;" href="component.html" onclick="setItem(this.id)" id="'+recent[k].url_name+'"><li class="list-group-item"><div class="badge"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span><span class="most_recent_time">'+recent[k].modified_time.substring(0, 10)+'</span></div><span class="most_recent_name">'+recent[k].name+'</span></li></a>';
 	  });
 	});
 	$.getJSON( "http://139.59.93.32/api/datatest/top/", function( data ) {
