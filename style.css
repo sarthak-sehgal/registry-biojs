@@ -348,12 +348,12 @@ h1, h2, h3, h4, h5 {
 	border-radius: 1px;
 	margin-right: 5px;
 }
-.list-group-item {
+.top_component_link {
 	-webkit-transition: 0.2s all ease-in-out;
 	-moz-transition: 0.2s all ease-in-out;
 	-o-transition: 0.2s all ease-in-out;
 	transition: 0.2s all ease-in-out;
 }
-.list-group-item:hover {
+.top_component_link:hover {
 	background-color: #e2e2e2;
 }
