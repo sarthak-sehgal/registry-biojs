@@ -24,7 +24,7 @@ function init()
 			var modified = '<li>Modified at: '+github_data.updated_at.substring(0,10);
 			var legal = github_data.license;
 			var legal_name = legal.name;
-			var legal_url = license.url;
+			var legal_url = '<a href="'+license.url+'">'legal_name'</a>';
 			var created_at = '<li>Created at: '+github_data.created_at.substring(0,10)+'</li>';
 			var issues = '<li>Open issues: '+github_data.open_issues_count+'</li>';
 			$.getJSON(details.github_url+"/contributors", function(contributors) {
@@ -34,7 +34,7 @@ function init()
 				for(i=0;i<contributors_count; i++)
 				{
 					commits+=contributors[i].contributions;
-					contributors_name += '<li>'contributors[i].login + ' ('+contributors[i].contributions+')</li>';
+					contributors_name += '<li>'+contributors[i].login + ' ('+contributors[i].contributions+')</li>';
 				}
 				commits = '<li>'+commits+'</li>';
 				contributors_name += '</ul>';
@@ -45,7 +45,7 @@ function init()
 		});
 
 		componentName.innerHTML += details.name;
-		componentContainer.innerHTML += '<div class="componentInfo">'+details.short_description+'</div><div class="componentNpm componentElement"><code>npm install '+url_name+'</code></div><div class="componentVisualize componentElement" style="padding: 0"><div class="component-heading">Visualization</div><div class="component-content"></div></div><div class="componentTags componentElement" style="padding: 0"><div class="component-heading">Tags</div><div class="component-content">'+getTags()+'</div></div><div class="componentSocial componentElement" style="padding: 0"><div class="component-heading">Social</div><div class="component-content"><ul>'+stars+watchers+commits+forks+contributors_count+'<ul></div></div><div class="componentStats componentElement" style="padding: 0"><div class="component-heading">Stats</div><div class="component-content"><ul>'+latest_version+modified+created_at+releases+issues+'</ul></div></div><div class="componentContirbutors componentElement" style="padding: 0"><div class="component-heading">Contributors</div><div class="component-content">'+contributors_name+'</div></div><div class="componentLegal componentElement" style="padding: 0"><div class="component-heading">Legal</div><div class="component-content">Call GitHub API</div></div>';
+		componentContainer.innerHTML += '<div class="componentInfo">'+details.short_description+'</div><div class="componentNpm componentElement"><code>npm install '+url_name+'</code></div><div class="componentVisualize componentElement" style="padding: 0"><div class="component-heading">Visualization</div><div class="component-content"></div></div><div class="componentTags componentElement" style="padding: 0"><div class="component-heading">Tags</div><div class="component-content">'+getTags()+'</div></div><div class="componentSocial componentElement" style="padding: 0"><div class="component-heading">Social</div><div class="component-content"><ul>'+stars+watchers+commits+forks+contributors_count+'<ul></div></div><div class="componentStats componentElement" style="padding: 0"><div class="component-heading">Stats</div><div class="component-content"><ul>'+latest_version+modified+created_at+releases+issues+'</ul></div></div><div class="componentContirbutors componentElement" style="padding: 0"><div class="component-heading">Contributors</div><div class="component-content">'+contributors_name+'</div></div><div class="componentLegal componentElement" style="padding: 0"><div class="component-heading">Legal</div><div class="component-content">'+legal_url+'</div></div>';
 	});
 }
 init();
