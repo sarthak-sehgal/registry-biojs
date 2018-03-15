@@ -17,8 +17,7 @@ function init()
 			return tagsCode;
 		}
 		$.getJSON(details.github_url, function(github_data) {
-			var stars = '<li>Stars: '+github_data.stargazers_count+'</li>';
-			alert(stars);
+			stars = '<li>Stars: '+github_data.stargazers_count+'</li>';
 			watchers = '<li>Watchers: '+github_data.subscribers_count+'</li>';
 			forks = '<li>Forks: '+github_data.forks_count+'</li>';
 			modified = '<li>Modified at: '+github_data.updated_at.substring(0,10);
