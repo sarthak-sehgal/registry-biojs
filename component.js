@@ -30,7 +30,7 @@ function init()
 		});
 		$.getJSON(details.github_url+"/contributors", function(contributors) {
 			contributors_count = '<li>Contributors: '+contributors.length+'</li>';
-			for(i=0, commits=0, contributors_name = '<ul>'; i<contributors_count; i++)
+			for(i=0, commits=0, contributors_name = '<ul>'; i<contributors.length; i++)
 			{
 				commits+=contributors[i].contributions;
 				contributors_name += '<li>'+contributors[i].login + ' ('+contributors[i].contributions+')</li>';
