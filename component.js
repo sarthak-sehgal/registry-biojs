@@ -26,7 +26,8 @@ function init()
 			legal_url = '<a href="'+legal.url+'">'+legal_name+'</a>';
 			created_at = '<li>Created at: '+github_data.created_at.substring(0,10)+'</li>';
 			issues = '<li>Open issues: '+github_data.open_issues_count+'</li>';
-			document.getElementsByClassName("componentInfo")[0].innerHTML += details.short_description;
+			var componentInfo = document.getElementsByClassName("componentInfo")[0];
+			componentInfo.innerHTML += details.short_description;
 			document.getElementsByClassName("componentCode")[0].innerHTML += url_name;
 			document.getElementsByClassName("getTags")[0].innerHTML += getTags();
 			document.getElementsByClassName("componentSocial-list")[0].innerHTML += window.stars+window.watchers+window.forks;
