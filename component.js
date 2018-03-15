@@ -7,6 +7,10 @@ function init()
 		var details = data.details;
 		var componentContainer = document.getElementById("component-container");
 		var componentName = document.getElementById("component-name");
+		var componentInfo = document.getElementsByClassName("componentInfo")[0];
+		componentName.innerHTML += details.name;
+		componentInfo.innerHTML += details.short_description;
+		document.getElementsByClassName("componentCode")[0].innerHTML += url_name;
 
 		function getTags() {
 			var tagsCode='';
@@ -16,6 +20,8 @@ function init()
 			}
 			return tagsCode;
 		}
+		document.getElementsByClassName("getTags")[0].innerHTML += getTags();
+		
 		$.getJSON(details.github_url, function(github_data) {
 			stars = '<li>Stars: '+github_data.stargazers_count+'</li>';
 			watchers = '<li>Watchers: '+github_data.subscribers_count+'</li>';
@@ -26,10 +32,6 @@ function init()
 			legal_url = '<a href="'+legal.url+'">'+legal_name+'</a>';
 			created_at = '<li>Created at: '+github_data.created_at.substring(0,10)+'</li>';
 			issues = '<li>Open issues: '+github_data.open_issues_count+'</li>';
-			var componentInfo = document.getElementsByClassName("componentInfo")[0];
-			componentInfo.innerHTML += details.short_description;
-			document.getElementsByClassName("componentCode")[0].innerHTML += url_name;
-			document.getElementsByClassName("getTags")[0].innerHTML += getTags();
 			document.getElementsByClassName("componentSocial-list")[0].innerHTML += window.stars+window.watchers+window.forks;
 			document.getElementsByClassName("componentStats-list")[0].innerHTML += window.modified+window.created_at+window.issues;
 			document.getElementsByClassName("legalUrl")[0].innerHTML += window.legal_url;
@@ -49,7 +51,6 @@ function init()
 		});
 		$.getJSON(details.github_url+"/releases", function(releases) {
 			latest_version = '<li>'+releases[0].tag_name+'</li>';
-			componentName.innerHTML += details.name;
 			var stats = document.getElementsByClassName("componentStats-list")[0];
 			stats.innerHTML+=window.latest_version;
 		});
