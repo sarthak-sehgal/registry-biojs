@@ -30,18 +30,16 @@ function init()
 		});
 		$.getJSON(details.github_url+"/contributors", function(contributors) {
 			contributors_count = '<li>Contributors: '+contributors.length+'</li>';
-			commits = 0;
-			contributors_name = '<ul>';
-			for(i=0; i<contributors_count; i++)
+			for(i=0, commits=0, contributors_name = '<ul>'; i<contributors_count; i++)
 			{
-				window.commits+=contributors[i].contributions;
-				window.contributors_name += '<li>'+contributors[i].login + ' ('+contributors[i].contributions+')</li>';
+				commits+=contributors[i].contributions;
+				contributors_name += '<li>'+contributors[i].login + ' ('+contributors[i].contributions+')</li>';
 			}
-			contributors_name += '</ul>';
+			window.contributors_name += '</ul>';
 			var contributors_list = document.getElementsByClassName("contributors-list")[0];
 			contributors_list.innerHTML += contributors_name;
 			var social_list = document.getElementsByClassName("componentSocial-list")[0];
-			social_list.innerHTML+=window.contributors_count + window.commits;
+			social_list.innerHTML+=window.contributors_count + '<li>Commits: '+window.commits+'</li>';
 		});
 		$.getJSON(details.github_url+"/releases", function(releases) {
 			latest_version = '<li>'+releases[0].tag_name+'</li>';
