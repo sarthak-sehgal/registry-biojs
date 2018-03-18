@@ -1,4 +1,4 @@
-# Prototype: 
+# Prototype: Frontend Website Student Project for BioJS
 This a prototype for the [Frontend Website Student Project for BioJS](http://obf.github.io/GSoC/ideas/#frontend-website-student-project-for-biojs) being developed as part of [GSoC 2018](https://summerofcode.withgoogle.com/). It is developed using HTML5, CSS and VanillaJS (plain javascript).The prototype is meant to reflect the basic design of the actual website and also its core functionality.
 
 ## View the website
